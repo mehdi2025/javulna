@@ -5,7 +5,7 @@ RUN mv webapps webappsSS
 RUN mv webapps.dist webapps 
 
 # Copy the artifact from the project directory to the Tomcat webapps directory
-COPY ./target/javulna-1.0-SNAPSHOT.jar /usr/local/tomcat/webapps/
+COPY ./target/javulna-1.0-SNAPSHOT.war /usr/local/tomcat/webapps/
 
 
 
