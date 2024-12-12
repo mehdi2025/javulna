@@ -11,6 +11,11 @@ pipeline { // Defines a pipeline
         git 'https://github.com/mehdi2025/javulna.git' // Retrieves the source code from the specified GitHub repository
       }
     }
+  stage ('Unit Test') { // Defines the 'Unit Test' stage
+      steps { // Specifies the steps to be executed within this stage
+        sh 'mvn test' // Runs the Maven command to execute the unit tests
+      }   
+    }
 
     
     
