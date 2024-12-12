@@ -19,9 +19,7 @@ pipeline { // Defines a pipeline
   stage ('Build') { // Defines the 'Build' stage
       steps { // Specifies the steps to be executed within this stage
         sh 'mvn clean install' // Runs the Maven command to clean and build the project
-        sh 'mvn clean package' 
-        sh 'cp target/javulna-1.0-SNAPSHOT.war /home/mehdi/Documents/' 
-      }   
+       }   
     }
   stage ('docker build') { // Defines the 'docker build' stage
       steps { // Specifies the steps to be executed within this stage
