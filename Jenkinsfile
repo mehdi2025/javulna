@@ -3,6 +3,7 @@ pipeline { // Defines a pipeline
 
   tools { // Configures the tools used in the pipeline
     maven 'maven' // Specifies the Maven tool that should be used in the pipeline
+    git 'git-installation-Git' 
   }
 
   stages { // Defines the different stages of the pipeline
