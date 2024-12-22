@@ -11,10 +11,10 @@ pipeline { // Defines a pipeline
         git 'https://github.com/mehdi2025/javulna.git' // Retrieves the source code from the specified GitHub repository
       }
     }
-  stage ('Secret scanner') { // Defines the 'Unit Test' stage
-      steps { // Specifies the steps to be executed within this stage
-        sh 'gitleaks detect --source="/var/lib/jenkins/workspace/Pipeline DevSecOps-1" --report-format=json > gitleaks-report.json || true
-' // Runs the Maven command to execute the unit tests
+  stage ('Secret scanner') { 
+      steps { 
+        sh 'gitleaks detect --source="/var/lib/jenkins/workspace/Pipeline DevSecOps-1" --report-format=json > gitleaks-report.json || true'
+
       }   
     }
   stage('SonarQube Analysis') {
