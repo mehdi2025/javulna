@@ -38,7 +38,7 @@ pipeline { // Defines a pipeline
     }
   stage ('Docker scan') { // Defines the 'Build' stage
       steps { 
-        sh 'trivy image --format json -o docker-report.json javulna-0.1'
+        sh 'trivy image --timeout 5m --format json -o docker-report.json javulna-0.1'
        }   
     }
   stage ('docker build') { // Defines the 'docker build' stage
