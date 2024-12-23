@@ -26,14 +26,10 @@ pipeline { // Defines a pipeline
       }
     }
     
-  stage ('Unit Test') { // Defines the 'Unit Test' stage
-      steps { // Specifies the steps to be executed within this stage
-        sh 'mvn test' // Runs the Maven command to execute the unit tests
-      }   
-    }
+ 
   stage ('Build') { // Defines the 'Build' stage
       steps { // Specifies the steps to be executed within this stage
-        sh 'mvn clean install' // Runs the Maven command to clean and build the project
+        sh 'mvn clean verify' // Runs the Maven command to clean and build the project
        }   
     }
   stage ('docker build') { // Defines the 'docker build' stage
