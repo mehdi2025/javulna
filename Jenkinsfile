@@ -36,17 +36,18 @@ pipeline { // Defines a pipeline
         sh 'mvn clean install' // Runs the Maven command to clean and build the project
        }   
     }
+  stage ('docker build') { // Defines the 'docker build' stage
+      steps { // Specifies the steps to be executed within this stage
+        sh 'docker build -t javulna-0.1 .' // Builds a Docker image with the specified tag
+      }   
+    }
   stage ('Docker scan') { // Defines the 'Build' stage
       steps {
         sh 'trivy clean --java-db'
         sh 'trivy image --timeout 5m --format json -o docker-report.json --debug javulna-0.1'
        }   
     }
-  stage ('docker build') { // Defines the 'docker build' stage
-      steps { // Specifies the steps to be executed within this stage
-        sh 'docker build -t javulna-0.1 .' // Builds a Docker image with the specified tag
-      }   
-    }
+  
 stage ('docker run container') { // Defines the 'docker run container' stage
       steps { // Specifies the steps to be executed within this stage
         sh 'docker stop app || true' // Stops any running container with the name 'app'
